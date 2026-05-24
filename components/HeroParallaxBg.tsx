@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { ImageWatermark } from "./ImageWatermark";
 import styles from "./Hero.module.css";
 
 type HeroParallaxBgProps = {
@@ -126,6 +127,7 @@ export function HeroParallaxBg({ src }: HeroParallaxBgProps) {
         sizes="100vw"
         className={styles.bgPhoto}
       />
+      <ImageWatermark />
     </div>
   );
 }

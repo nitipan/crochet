@@ -70,6 +70,11 @@
   box-shadow: var(--shadow-luxury);
 }
 
+.imageWrap {
+  position: relative;
+  overflow: hidden;
+}
+
 .image {
   width: 100%;
   height: auto;

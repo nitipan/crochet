@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import type { ProductImage } from "@/data/products";
+import { ImageWatermark } from "./ImageWatermark";
 import styles from "./GalleryGrid.module.css";
 
 type GalleryGridProps = {
@@ -65,6 +66,7 @@ export function GalleryGrid({ images, categoryLabel }: GalleryGridProps) {
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   className={styles.thumb}
                 />
+                <ImageWatermark />
               </span>
             </button>
           </li>
@@ -110,15 +112,18 @@ export function GalleryGrid({ images, categoryLabel }: GalleryGridProps) {
               ‹
             </button>
             <figure className={styles.lightboxFigure}>
-              <Image
-                src={`/products/${images[lightboxIndex].src}`}
-                alt={images[lightboxIndex].alt}
-                width={900}
-                height={1200}
-                sizes="90vw"
-                className={styles.lightboxImage}
-                priority
-              />
+              <div className={styles.lightboxMedia}>
+                <Image
+                  src={`/products/${images[lightboxIndex].src}`}
+                  alt={images[lightboxIndex].alt}
+                  width={900}
+                  height={1200}
+                  sizes="90vw"
+                  className={styles.lightboxImage}
+                  priority
+                />
+                <ImageWatermark />
+              </div>
               <figcaption className={styles.lightboxCaption}>
                 {images[lightboxIndex].alt}
               </figcaption>

@@ -89,6 +89,10 @@
   );
 }
 
+.lightboxMedia {
+  position: relative;
+}
+
 .lightboxImage {
   width: 100%;
   height: auto;

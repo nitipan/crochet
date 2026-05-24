@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { studioImages } from "@/data/products";
 import { site } from "@/data/social";
+import { ImageWatermark } from "./ImageWatermark";
 import { ScrollReveal } from "./ScrollReveal";
 import styles from "./Studio.module.css";
 
@@ -36,6 +37,7 @@ export function Studio() {
                     className={styles.image}
                     loading="lazy"
                   />
+                  <ImageWatermark />
                 </div>
               </figure>
             </ScrollReveal>
