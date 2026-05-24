@@ -13,7 +13,7 @@
 | **Photography** | Real studio product shots; UI stays out of the way |
 | **Hero** | Full-screen doll photo as **background**; brand welcome text **overlaid** |
 | **Rhythm** | Light ↔ dark sections; gold label lines; serif headlines |
-| **Motion** | Slow fade-up, gentle Ken Burns on hero, scroll-reveal below fold |
+| **Motion** | Slow fade-up, gentle Ken Burns on hero, mobile pointer/scroll parallax, scroll-reveal below fold |
 | **Conversion** | Facebook + TikTok follow buttons — sticky bar, hero, footer |
 
 **Not this:** loud kawaii, busy nav, shopping cart, thick frames on hero, side-by-side hero product cards, neon accents, Tailwind.
@@ -79,9 +79,9 @@ Section headers: `.sectionLabel` (gold flanking lines) → `.sectionTitle` → `
 
 **Image:** `content/products.json` → `hero.src` = **`IMG_3598.JPG`** (landscape studio pair)
 
-**Structure** (`components/Hero.tsx` + `Hero.module.css`):
+**Structure** (`components/Hero.tsx`, `HeroParallaxBg.tsx`, `Hero.module.css`):
 
-1. **Background layer** — `Image` with `fill`, `object-fit: cover`, `object-position: center 38%`, slow Ken Burns (scale 1 → 1.06, 24s)
+1. **Background layer** — `HeroParallaxBg` → `ProtectedImage` → `Image` with `fill`, `object-fit: cover`, `object-position: center 38%`, slow Ken Burns (scale 1 → 1.06, 24s). On mobile/touch (≤640px): subtle pointer + scroll parallax; Ken Burns pauses while parallax active. Respects `prefers-reduced-motion`.
 2. **Overlay layer** — dual gradient for readability:
    - Desktop: dark left → lighter right (text sits in dark zone; dolls visible right)
    - Mobile: strong bottom gradient; content anchored toward bottom
@@ -99,6 +99,7 @@ Section headers: `.sectionLabel` (gold flanking lines) → `.sectionTitle` → `
 | **Hero** | Full-bleed background only — no frame |
 | **Gallery** | Gold-gradient padding frame, hover lift |
 | **Craft story / Studio** | Gold outer frame (`.frame` / `.luxFrame`) |
+| **All product images** | `ProtectedImage` wrapper — blocks right-click/drag, subtle watermark |
 | **All gallery images** | `alt` in `content/products.json` |
 
 Hero: `priority` load. Below fold: lazy load.
@@ -120,6 +121,7 @@ Variants in `SocialButtons.tsx`: `filled` | `outline` | `luxury`
 ## Motion
 
 - Hero: staggered `fadeUp` on load (accent → title → tagline → CTA)
+- Hero mobile: pointer-follow + scroll parallax via `HeroParallaxBg` (~24px shift, ~3.5° tilt, lerp-smoothed)
 - Below fold: `ScrollReveal` (Intersection Observer)
 - Gallery lightbox: soft fade-in
 - Hover: gentle lift / scale — never bouncy
@@ -133,7 +135,8 @@ Variants in `SocialButtons.tsx`: `filled` | `outline` | `luxury`
 | Design tokens | `app/globals.css` |
 | Copy, social, SEO | `content/site.json` |
 | Images, gallery, hero | `content/products.json` |
-| Sections | `components/Hero`, `CraftStory`, `Gallery`, `Studio`, `FollowCta`, `Footer` |
+| Sections | `components/Hero`, `HeroParallaxBg`, `SocialBar`, `CraftStory`, `Gallery`, `Studio`, `FollowCta`, `Footer` |
+| Image protection | `components/ProtectedImage` |
 
 Edit JSON → push → Vercel rebuilds. See `content/README.md`.
 

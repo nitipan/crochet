@@ -22,6 +22,8 @@ Do not guess brand colors, hero layout, or content file locations — read the d
 - Primary goal: Facebook + TikTok follows (no shop, no Instagram unless asked)
 - **Hero:** `IMG_3598.JPG` full-viewport **background** + title/tagline/**luxury** buttons **overlaid** — never revert to side card or framed hero box
 - Gallery/studio: gold frames; hero: no frame
+- Mobile hero: pointer/scroll parallax via `HeroParallaxBg` — keep subtle
+- Product images: wrap with `ProtectedImage`
 - Content in `content/*.json` only
 
 Full spec: [DESIGN.md](../../DESIGN.md)
