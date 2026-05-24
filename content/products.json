@@ -1,0 +1,76 @@
+{
+  "hero": {
+    "src": "IMG_3598.JPG",
+    "alt": "Pair of handmade amigurumi dolls in craft studio with Handmade sign"
+  },
+  "craftStory": {
+    "src": "IMG_6289.JPG",
+    "alt": "Close-up of handmade crochet animal patches in mint green and pink"
+  },
+  "studio": [
+    {
+      "src": "IMG_0570.JPG",
+      "alt": "Pair of handmade amigurumi dolls displayed in craft studio with Handmade sign"
+    },
+    {
+      "src": "IMG_1256.JPG",
+      "alt": "Amigurumi doll with striped top and blue beret in organized crochet studio"
+    },
+    {
+      "src": "IMG_6289.JPG",
+      "alt": "Handmade animal appliqué patches arranged on rustic wood with daisies"
+    }
+  ],
+  "categories": [
+    {
+      "id": "dolls",
+      "label": "Amigurumi Dolls",
+      "images": [
+        { "src": "IMG_0570.JPG", "alt": "Pair of handmade amigurumi dolls in studio setting" },
+        { "src": "IMG_3598.JPG", "alt": "Handmade amigurumi doll pair with studio Handmade sign" },
+        { "src": "IMG_1256.JPG", "alt": "Amigurumi doll with blue beret and striped overalls" },
+        { "src": "IMG_1309.JPG", "alt": "Amigurumi doll with white beret and crossbody purse" },
+        { "src": "IMG_1310.JPG", "alt": "Handmade crochet doll with detailed outfit and accessories" },
+        { "src": "IMG_1311.JPG", "alt": "Artisan amigurumi doll with pastel crochet clothing" },
+        { "src": "IMG_1313.JPG", "alt": "Cute handmade crochet character doll" },
+        { "src": "IMG_1314.JPG", "alt": "Premium amigurumi doll with custom accessories" },
+        { "src": "IMG_6517.JPG", "alt": "Handcrafted amigurumi doll with expressive features" },
+        { "src": "IMG_6518.JPG", "alt": "Studio-crafted crochet doll with detailed styling" },
+        { "src": "IMG_6541.JPG", "alt": "Handmade amigurumi doll with charming outfit" },
+        { "src": "IMG_6543.JPG", "alt": "Artisan crochet doll with miniature accessories" },
+        { "src": "IMG_6580.JPG", "alt": "Delicate handmade amigurumi character" },
+        { "src": "IMG_6603.JPG", "alt": "Custom crochet doll with premium finish" },
+        { "src": "IMG_6830.JPG", "alt": "Handmade amigurumi doll in studio presentation" }
+      ]
+    },
+    {
+      "id": "accessories",
+      "label": "Hair Clips & Charms",
+      "images": [
+        { "src": "IMG_6459.JPG", "alt": "Black and white crochet hair clip with pearl center and daisies" },
+        { "src": "IMG_1235.JPG", "alt": "Crochet bag charm doll in clear pouch on tote bag" },
+        { "src": "IMG_1250.JPG", "alt": "Handmade crochet hair accessory with artisan detail" },
+        { "src": "IMG_1261.JPG", "alt": "Delicate crochet charm with pastel yarn accents" },
+        { "src": "IMG_0563.JPG", "alt": "Handcrafted crochet accessory with fine stitch work" },
+        { "src": "IMG_9243.JPG", "alt": "Artisan crochet charm with miniature details" }
+      ]
+    },
+    {
+      "id": "patches",
+      "label": "Appliqué Patches",
+      "images": [
+        { "src": "IMG_6289.JPG", "alt": "Set of mint and pink crochet animal face patches" },
+        { "src": "IMG_6356.JPG", "alt": "Handmade crochet appliqué patch with fluffy border" },
+        { "src": "IMG_6360.JPG", "alt": "Artisan animal patch with scalloped crochet edge" }
+      ]
+    },
+    {
+      "id": "pouches",
+      "label": "Pouches & Bags",
+      "images": [
+        { "src": "IMG_6649.JPG", "alt": "Red crochet drawstring pouch with Christmas tree motif" },
+        { "src": "IMG_6250.JPG", "alt": "Handmade crochet pouch with decorative trim" }
+      ]
+    }
+  ]
+}

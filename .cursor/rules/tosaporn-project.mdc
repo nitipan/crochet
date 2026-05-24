@@ -1,0 +1,41 @@
+---
+description: Tosaporn Pompan showcase site — design, content, and dev conventions
+alwaysApply: true
+---
+
+# Tosaporn Pompan project
+
+## Auto-read before acting
+
+| Task | Read first |
+|------|------------|
+| UI, layout, colors, hero, luxury styling | [DESIGN.md](../../DESIGN.md) |
+| Products, copy, social links, SEO text | [content/README.md](../../content/README.md) + `content/site.json` / `content/products.json` |
+| Cursor rules or AGENTS.md changes | create-rule skill |
+| PR / CI babysitting | babysit skill |
+
+Do not guess brand colors, hero layout, or content file locations — read the doc above.
+
+## Design non-negotiables (approved look — locked)
+
+- Luxury Japanese artisan: charcoal + gold + ivory, Noto Serif headings
+- Primary goal: Facebook + TikTok follows (no shop, no Instagram unless asked)
+- **Hero:** `IMG_3598.JPG` full-viewport **background** + title/tagline/**luxury** buttons **overlaid** — never revert to side card or framed hero box
+- Gallery/studio: gold frames; hero: no frame
+- Content in `content/*.json` only
+
+Full spec: [DESIGN.md](../../DESIGN.md)
+
+## Dev commands
+
+```bash
+npm run dev       # clears .next, then dev
+npm run build     # clears .next + out, then build
+npm run preview   # serve out/ locally
+```
+
+If port 3000 is stuck, stop old `next dev` processes before starting again.
+
+## Code style
+
+Follow [AGENTS.md](../../AGENTS.md): minimal diffs, match existing CSS module patterns, no Tailwind.

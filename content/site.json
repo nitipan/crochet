@@ -1,0 +1,50 @@
+{
+  "brandName": "Tosaporn Pompan",
+  "tagline": "Handcrafted crochet, made with care",
+  "social": {
+    "facebook": "https://www.facebook.com/TosapornPompan",
+    "tiktok": "https://www.tiktok.com/@tosapornpompan"
+  },
+  "seo": {
+    "domain": "https://tosapornpompan.com",
+    "description": "Handcrafted amigurumi dolls, crochet accessories, and artisan pieces made with care in our studio. Follow us on Facebook and TikTok for new creations.",
+    "ogDescription": "Premium handmade amigurumi dolls and crochet accessories. Each piece is crafted with care in our studio.",
+    "keywords": [
+      "handmade crochet",
+      "amigurumi",
+      "artisan crafts",
+      "Tosaporn Pompan",
+      "crochet dolls",
+      "handcrafted accessories"
+    ],
+    "ogImage": "IMG_1309.JPG"
+  },
+  "sections": {
+    "craftStory": {
+      "label": "Our Philosophy",
+      "title": "Every stitch tells a story",
+      "intro": [
+        "At Tosaporn Pompan, each piece begins as a quiet idea — a color, a texture, a feeling — and grows slowly into something you can hold. We crochet every doll, clip, and patch by hand, one loop at a time.",
+        "There are no machines here, no mass production. Just patience, precision, and the kind of care that only comes from making something with your own hands. Every amigurumi has its own personality. Every accessory carries the warmth of the studio it was born in."
+      ],
+      "quote": "Handmade is not a label — it is a promise.",
+      "outro": [
+        "We share our latest creations on Facebook and TikTok, where you can follow along as new pieces come to life. Whether you are looking for a gift, a charm for your bag, or simply something beautiful to admire — welcome to our workshop."
+      ]
+    },
+    "gallery": {
+      "label": "Collection",
+      "title": "Our handcrafted work",
+      "intro": "Amigurumi dolls, accessories, appliqué patches, and pouches — each one made by hand in our studio."
+    },
+    "studio": {
+      "label": "The Studio",
+      "title": "Every piece begins here",
+      "intro": "Behind each creation is a quiet workspace filled with yarn, beads, and the patience of handmade craft."
+    },
+    "follow": {
+      "title": "Follow our latest creations",
+      "subtext": "New dolls, accessories, and studio moments — shared on Facebook and TikTok."
+    }
+  }
+}
