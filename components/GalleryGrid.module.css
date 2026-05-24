@@ -56,7 +56,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: max(1rem, env(safe-area-inset-top))
+    max(1rem, env(safe-area-inset-right))
+    max(1rem, env(safe-area-inset-bottom))
+    max(1rem, env(safe-area-inset-left));
+  overflow: auto;
+  overscroll-behavior: contain;
   animation: fadeIn 0.3s ease;
 }
 
@@ -72,9 +77,12 @@
 .lightboxInner {
   position: relative;
   width: min(100%, 900px);
+  max-height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  margin: auto;
 }
 
 .lightboxFigure {
@@ -113,9 +121,10 @@
 }
 
 .closeBtn {
-  position: absolute;
-  top: -2.5rem;
-  right: 0;
+  position: fixed;
+  top: max(0.75rem, env(safe-area-inset-top));
+  right: max(0.75rem, env(safe-area-inset-right));
+  z-index: 201;
   color: var(--color-gold-light);
   font-size: 2rem;
   line-height: 1;
@@ -157,12 +166,5 @@
 @media (max-width: 640px) {
   .navBtn {
     display: none;
-  }
-
-  .closeBtn {
-    top: 0.5rem;
-    right: 0.5rem;
-    position: fixed;
-    z-index: 201;
   }
 }

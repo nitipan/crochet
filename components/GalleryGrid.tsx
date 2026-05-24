@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import type { ProductImage } from "@/data/products";
 import { ProtectedImage } from "./ProtectedImage";
@@ -13,6 +14,11 @@ type GalleryGridProps = {
 
 export function GalleryGrid({ images, categoryLabel }: GalleryGridProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const close = useCallback(() => setLightboxIndex(null), []);
 
@@ -73,72 +79,75 @@ export function GalleryGrid({ images, categoryLabel }: GalleryGridProps) {
         ))}
       </ul>
 
-      {lightboxIndex !== null && (
-        <div
-          className={styles.lightbox}
-          role="dialog"
-          aria-modal="true"
-          aria-label={`${categoryLabel} gallery viewer`}
-          onClick={close}
-        >
+      {lightboxIndex !== null &&
+        mounted &&
+        createPortal(
           <div
-            className={styles.lightboxInner}
-            onClick={(e) => e.stopPropagation()}
-            onTouchStart={(e) => {
-              touchStartX = e.touches[0].clientX;
-            }}
-            onTouchEnd={(e) => {
-              const diff = e.changedTouches[0].clientX - touchStartX;
-              if (Math.abs(diff) > 50) {
-                if (diff > 0) goPrev();
-                else goNext();
-              }
-            }}
+            className={styles.lightbox}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${categoryLabel} gallery viewer`}
+            onClick={close}
           >
-            <button
-              type="button"
-              className={styles.closeBtn}
-              onClick={close}
-              aria-label="Close gallery"
+            <div
+              className={styles.lightboxInner}
+              onClick={(e) => e.stopPropagation()}
+              onTouchStart={(e) => {
+                touchStartX = e.touches[0].clientX;
+              }}
+              onTouchEnd={(e) => {
+                const diff = e.changedTouches[0].clientX - touchStartX;
+                if (Math.abs(diff) > 50) {
+                  if (diff > 0) goPrev();
+                  else goNext();
+                }
+              }}
             >
-              ×
-            </button>
-            <button
-              type="button"
-              className={`${styles.navBtn} ${styles.navPrev}`}
-              onClick={goPrev}
-              aria-label="Previous image"
-            >
-              ‹
-            </button>
-            <figure className={styles.lightboxFigure}>
-              <ProtectedImage className={styles.lightboxMedia}>
-                <Image
-                  src={`/products/${images[lightboxIndex].src}`}
-                  alt={images[lightboxIndex].alt}
-                  width={900}
-                  height={1200}
-                  sizes="90vw"
-                  className={styles.lightboxImage}
-                  priority
-                  draggable={false}
-                />
-              </ProtectedImage>
-              <figcaption className={styles.lightboxCaption}>
-                {images[lightboxIndex].alt}
-              </figcaption>
-            </figure>
-            <button
-              type="button"
-              className={`${styles.navBtn} ${styles.navNext}`}
-              onClick={goNext}
-              aria-label="Next image"
-            >
-              ›
-            </button>
-          </div>
-        </div>
-      )}
+              <button
+                type="button"
+                className={styles.closeBtn}
+                onClick={close}
+                aria-label="Close gallery"
+              >
+                ×
+              </button>
+              <button
+                type="button"
+                className={`${styles.navBtn} ${styles.navPrev}`}
+                onClick={goPrev}
+                aria-label="Previous image"
+              >
+                ‹
+              </button>
+              <figure className={styles.lightboxFigure}>
+                <ProtectedImage className={styles.lightboxMedia}>
+                  <Image
+                    src={`/products/${images[lightboxIndex].src}`}
+                    alt={images[lightboxIndex].alt}
+                    width={900}
+                    height={1200}
+                    sizes="90vw"
+                    className={styles.lightboxImage}
+                    priority
+                    draggable={false}
+                  />
+                </ProtectedImage>
+                <figcaption className={styles.lightboxCaption}>
+                  {images[lightboxIndex].alt}
+                </figcaption>
+              </figure>
+              <button
+                type="button"
+                className={`${styles.navBtn} ${styles.navNext}`}
+                onClick={goNext}
+                aria-label="Next image"
+              >
+                ›
+              </button>
+            </div>
+          </div>,
+          document.body,
+        )}
     </>
   );
 }
