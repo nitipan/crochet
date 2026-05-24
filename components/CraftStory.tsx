@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { craftStoryImage } from "@/data/products";
 import { site } from "@/data/social";
-import { ImageWatermark } from "./ImageWatermark";
+import { ProtectedImage } from "./ProtectedImage";
 import { ScrollReveal } from "./ScrollReveal";
 import styles from "./CraftStory.module.css";
 
@@ -38,7 +38,7 @@ export function CraftStory() {
           <ScrollReveal className={styles.imageCol} delay={200}>
             <figure className={styles.figure}>
               <div className={styles.frame}>
-                <div className={styles.imageWrap}>
+                <ProtectedImage className={styles.imageWrap}>
                   <Image
                     src={`/products/${craftStoryImage.src}`}
                     alt={craftStoryImage.alt}
@@ -46,9 +46,9 @@ export function CraftStory() {
                     height={750}
                     sizes="(max-width: 768px) 100vw, 45vw"
                     className={styles.image}
+                    draggable={false}
                   />
-                  <ImageWatermark />
-                </div>
+                </ProtectedImage>
               </div>
               <figcaption className={styles.caption}>
                 手作り — made by hand

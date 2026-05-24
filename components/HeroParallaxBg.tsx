@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { ImageWatermark } from "./ImageWatermark";
+import { ProtectedImage } from "./ProtectedImage";
 import styles from "./Hero.module.css";
 
 type HeroParallaxBgProps = {
@@ -119,15 +119,17 @@ export function HeroParallaxBg({ src }: HeroParallaxBgProps) {
 
   return (
     <div ref={containerRef} className={styles.bgImage} aria-hidden="true">
-      <Image
-        src={src}
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className={styles.bgPhoto}
-      />
-      <ImageWatermark />
+      <ProtectedImage className={styles.bgImageProtect}>
+        <Image
+          src={src}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className={styles.bgPhoto}
+          draggable={false}
+        />
+      </ProtectedImage>
     </div>
   );
 }

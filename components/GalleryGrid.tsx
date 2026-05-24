@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import type { ProductImage } from "@/data/products";
-import { ImageWatermark } from "./ImageWatermark";
+import { ProtectedImage } from "./ProtectedImage";
 import styles from "./GalleryGrid.module.css";
 
 type GalleryGridProps = {
@@ -58,16 +58,16 @@ export function GalleryGrid({ images, categoryLabel }: GalleryGridProps) {
               onClick={() => setLightboxIndex(index)}
               aria-label={`View ${image.alt}`}
             >
-              <span className={styles.thumbInner}>
+              <ProtectedImage className={styles.thumbInner}>
                 <Image
                   src={`/products/${image.src}`}
                   alt={image.alt}
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   className={styles.thumb}
+                  draggable={false}
                 />
-                <ImageWatermark />
-              </span>
+              </ProtectedImage>
             </button>
           </li>
         ))}
@@ -112,7 +112,7 @@ export function GalleryGrid({ images, categoryLabel }: GalleryGridProps) {
               ‹
             </button>
             <figure className={styles.lightboxFigure}>
-              <div className={styles.lightboxMedia}>
+              <ProtectedImage className={styles.lightboxMedia}>
                 <Image
                   src={`/products/${images[lightboxIndex].src}`}
                   alt={images[lightboxIndex].alt}
@@ -121,9 +121,9 @@ export function GalleryGrid({ images, categoryLabel }: GalleryGridProps) {
                   sizes="90vw"
                   className={styles.lightboxImage}
                   priority
+                  draggable={false}
                 />
-                <ImageWatermark />
-              </div>
+              </ProtectedImage>
               <figcaption className={styles.lightboxCaption}>
                 {images[lightboxIndex].alt}
               </figcaption>
