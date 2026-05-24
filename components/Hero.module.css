@@ -27,6 +27,30 @@
   perspective: 1200px;
 }
 
+.motionHint {
+  position: absolute;
+  bottom: 4.5rem;
+  left: 50%;
+  z-index: 3;
+  transform: translateX(-50%);
+  padding: 0.55rem 1rem;
+  border: 1px solid rgba(196, 163, 90, 0.55);
+  border-radius: 999px;
+  background: rgba(12, 10, 10, 0.72);
+  backdrop-filter: blur(8px);
+  color: var(--color-gold-light);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  animation: fadeUp 1s ease 1.2s forwards;
+  opacity: 0;
+}
+
+.motionHint:active {
+  background: rgba(12, 10, 10, 0.88);
+}
+
 .bgPhoto {
   object-fit: cover;
   object-position: center 38%;
