@@ -65,3 +65,13 @@
   opacity: 0.45;
   letter-spacing: 0.06em;
 }
+
+.notice {
+  font-size: 0.68rem;
+  line-height: 1.6;
+  max-width: 28rem;
+  margin: 0;
+  opacity: 0.38;
+  letter-spacing: 0.03em;
+  color: rgba(247, 242, 234, 0.55);
+}

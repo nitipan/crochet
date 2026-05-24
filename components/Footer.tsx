@@ -1,8 +1,9 @@
-import { social } from "@/data/social";
+import { site, social } from "@/data/social";
 import styles from "./Footer.module.css";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const { copyright, imageNotice } = site.footer;
 
   return (
     <footer className={styles.footer} role="contentinfo">
@@ -28,8 +29,9 @@ export function Footer() {
           </a>
         </nav>
         <p className={styles.copy}>
-          © {year} {social.brandName}. All rights reserved.
+          © {year} {social.brandName}. {copyright}
         </p>
+        <p className={styles.notice}>{imageNotice}</p>
       </div>
     </footer>
   );
