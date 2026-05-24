@@ -15,6 +15,18 @@
   z-index: 0;
 }
 
+.bgImageParallax {
+  inset: -6%;
+  transform: translate3d(var(--parallax-x, 0), var(--parallax-y, 0), 0)
+    rotateX(var(--parallax-rx, 0deg)) rotateY(var(--parallax-ry, 0deg));
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.heroParallax {
+  perspective: 1200px;
+}
+
 .bgPhoto {
   object-fit: cover;
   object-position: center 38%;
@@ -162,6 +174,10 @@
 }
 
 @media (max-width: 640px) {
+  .bgImageParallax .bgPhoto {
+    animation: none;
+  }
+
   .overlay {
     background:
       linear-gradient(

@@ -1,22 +1,13 @@
-import Image from "next/image";
 import { heroImage } from "@/data/products";
 import { social } from "@/data/social";
+import { HeroParallaxBg } from "./HeroParallaxBg";
 import { SocialButtons } from "./SocialButtons";
 import styles from "./Hero.module.css";
 
 export function Hero() {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
-      <div className={styles.bgImage} aria-hidden="true">
-        <Image
-          src={`/products/${heroImage.src}`}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className={styles.bgPhoto}
-        />
-      </div>
+      <HeroParallaxBg src={`/products/${heroImage.src}`} />
       <div className={styles.overlay} aria-hidden="true" />
 
       <div className={styles.content}>
